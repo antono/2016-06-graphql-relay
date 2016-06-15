@@ -1,0 +1,28 @@
+{
+  "name": "2016-06-graphql-relay",
+  "version": "1.0.0",
+  "description": "Presentation for Ciklum Frontend Corner",
+  "main": "index.html",
+  "private": true,
+  "scripts": {
+    "start": "$(npm bin)/http-server"
+  },
+  "keywords": [
+    "presentation",
+    "graphql",
+    "relay"
+  ],
+  "author": "Antono Vasiljev <antono.vasiljev@gmail.com>",
+  "dependencies": {
+    "babel": "^5.0",
+    "http-server": "^0.8.5",
+    "web-presentation": "^1.0.3"
+  },
+  "engines" : {
+    "node" : ">=6.2.1"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/antono/2016-06-graphql-relay"
+  }
+}

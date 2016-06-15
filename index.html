@@ -1,0 +1,63 @@
+<link rel="import" href="node_modules/web-presentation/dist/web-presentation.html">
+<link rel="stylesheet" href="present.css">
+
+<web-presentation>
+  <web-slide-title>
+    <h2> GraphQL and Relay </h2>
+    <p><a href="http://twitter.com/antono/"> Anton Vasiljev </a></p>
+  </web-slide-title>
+
+  <web-slide>
+    <h2>Hierarchical</h2>
+    <ul>
+      <li>
+        GraphQL query itself is a hierarchical set of fields.
+      </li>
+      <li>
+        The query is shaped just like the data it returns.
+      </li>
+    </ul>
+  </web-slide>
+
+  <!--  TODO: examples for hierarchial queries -->
+
+  <web-slide>
+    <h2> Client Side Oriented </h2>
+    <p>
+      GraphQL is driven by the requirements of views and the front-end engineers that write them.
+    </p>
+    <p>
+      In GraphQL, the specification for queries are encoded in the <em>client</em> rather than the <em>server</em>.
+    </p>
+  </web-slide>
+
+  <!--  TODO: examples -->
+
+  <web-slide>
+    <h2> Product-centric </h2>
+    <p>
+      These queries are specified at field-level granularity. In the vast majority of applications written
+      without GraphQL, the server determines the data returned in its various scripted endpoints.
+      A GraphQL query, on the other hand, returns exactly what a client asks for and no more.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Product-centric </h2>
+    <ul>
+      <li><strong>Backwards Compatible:</strong> In a world of deployed native mobile applications with no forced upgrades, backwards compatibility is a challenge. Facebook, for example, releases apps on a two week fixed cycle and pledges to maintain those apps for <em>at least</em> two years. This means there are at a <em>minimum</em> 52 versions of our clients per platform querying our servers at any given time. Client-specified queries simplifies managing our backwards compatibility guarantees.</li>
+      <li><strong>Structured, Arbitrary Code:</strong> Query languages with field-level granularity have typically queried storage engines directly, such as SQL. GraphQL instead imposes a structure onto a server, and exposes fields that are backed by <em>arbitrary code</em>. This allows for both server-side flexibility and a uniform, powerful API across the entire surface area of an application.</li>
+      <li><strong>Application-Layer Protocol:</strong> GraphQL is an application-layer protocol and does not require a particular transport. It is a string that is parsed and interpreted by a server.</li>
+      <li><strong>Strongly-typed:</strong> GraphQL is strongly-typed. Given a query, tooling can ensure that the query is both syntactically correct and valid within the GraphQL type system before execution, i.e. at development time, and the server can make certain guarantees about the shape and nature of the response. This makes it easier to build high quality client tools.</li>
+      <li><strong>Introspective:</strong> GraphQL is introspective. Clients and tools can query the type system using the GraphQL syntax itself. This is a powerful platform for building tools and client software, such as automatic parsing of incoming data into strongly-typed interfaces. It is especially useful in statically typed languages such as Swift, Objective-C and Java, as it obviates the need for repetitive and error-prone code to shuffle raw, untyped JSON into strongly-typed business objects.</li>
+    </ul>
+  </web-slide>
+
+  <web-slide-title>
+		<h2> Questions? </h2>
+    <a href="https://github.com/antono/2016-06-graphql-relay"> Demos on Github </a>
+  </web-slide-title>
+
+  <web-presentation-progress></web-presentation-progress>
+  <web-presentation-keyboardcontrols></web-presentation-keyboardcontrols>
+</web-presentation>
