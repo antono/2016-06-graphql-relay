@@ -3,18 +3,19 @@
 
 <web-presentation>
   <web-slide-title>
-    <h2> GraphQL and Relay </h2>
-    <p><a href="http://twitter.com/antono/"> Anton Vasiljev </a></p>
+    <h2> GraphQL <del>и Relay</del></h2>
+    <h3>за 30 минут</h3>
+    <p><a href="http://twitter.com/antono/"> Антон Васильев </a></p>
   </web-slide-title>
 
   <web-slide>
-    <h2>Hierarchical</h2>
+    <h2>Иерархический</h2>
     <ul>
       <li>
-        GraphQL query itself is a hierarchical set of fields.
+        Запрос GraphQL это иерархическая структура данных.
       </li>
       <li>
-        The query is shaped just like the data it returns.
+        Запрос изоморфен возвращаемым данным.
       </li>
     </ul>
   </web-slide>
@@ -22,40 +23,196 @@
   <!--  TODO: examples for hierarchial queries -->
 
   <web-slide>
-    <h2> Client Side Oriented </h2>
+    <h2> Ориентирован на клиентов </h2>
     <p>
-      GraphQL is driven by the requirements of views and the front-end engineers that write them.
-    </p>
-    <p>
-      In GraphQL, the specification for queries are encoded in the <em>client</em> rather than the <em>server</em>.
+      GraphQL стремится удовлетворить требования фронтенд инжеренов и разработчиков родных приложений.
     </p>
   </web-slide>
 
   <!--  TODO: examples -->
 
   <web-slide>
-    <h2> Product-centric </h2>
+    <h2> Продукт-центированный </h2>
     <p>
-      These queries are specified at field-level granularity. In the vast majority of applications written
-      without GraphQL, the server determines the data returned in its various scripted endpoints.
-      A GraphQL query, on the other hand, returns exactly what a client asks for and no more.
+      В приложениях без GraphQL структуру и содержимое ответа определяет код на стороне сервера.
+      Запросы GraphQL запрашивают ровно столько данных сколько нужно данному клиенту.
     </p>
   </web-slide>
 
   <web-slide>
-    <h2> Product-centric </h2>
+    <h2> Запрос </h2>
+    <pre>
+      <code class="small">
+query {
+  todos {
+    id
+    title
+  }
+}
+      </code>
+    </pre>
+  </web-slide>
+
+  <web-slide>
+    <pre>
+      <code class="small">
+{
+  "data": {
+    "items": [
+      {
+        "id": 1,
+        "title": "Read introduction"
+      },
+      {
+        "id": 2,
+        "title": "Read GraphQL by example"
+      },
+    ]
+  }
+}
+      </code>
+    </pre>
+  </web-slide>
+
+  <web-slide>
+    <h2> Запрос </h2>
+    <pre>
+      <code class="small">
+query {
+  todos {
+    id
+    title
+    done
+  }
+}
+      </code>
+    </pre>
+  </web-slide>
+
+  <web-slide>
+    <pre>
+      <code class="small">
+{
+  "data": {
+    "items": [
+      {
+        "id": 1,
+        "title": "Read introduction",
+        "done": true
+      },
+      {
+        "id": 2,
+        "title": "Read GraphQL by example",
+        "done": false
+      },
+    ]
+  }
+}
+      </code>
+    </pre>
+  </web-slide>
+
+  <web-slide>
+    <h2> Упрощает обратную совместимость </h2>
+    <p>
+      Facebook выкатывает новый клиент каждые 2 недели и поддерживает его как минимум в
+      течение 2х лет. 52 версии приложений одновременно используют
+      один и тот же GraphQL API.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Не привязан к источнику данных </h2>
+    <p>
+      GraphQL можно использовать с любыми источниками данных.
+      SQL, NoSQL, REST, FS, etc...
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Не привязан к транспортному уровню </h2>
+    <p>
+      GraphQL - протокол уровня приложения и не привязан к протоколу транспортного уровня.
+      GraphQL запрос - это строка которая разбирается и обрабатывается на сервере произвольным кодом.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <img src="https://cldup.com/ysnmIMhqRU.png" width="80%" />
+  </web-slide>
+
+  <web-slide>
+    <h2> Сильно типизированный </h2>
+    <p>
+      GraphQL - сильно типизированный язык запросов. Это позволяет инструментам разработки валидизировать запрос не полагаясь на проверки этапа выполнения.
+      Клиент всегда знает о типах данных ответа.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Самясьвядомы </h2>
+    <p>
+      Клиент может делать запросы к системе типов GraphQL используя GraphQL.
+      Упрощает разработку клиентов для языков со статической типизацией (Java, Objective-C, Swift).
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Примеры </h2>
+  </web-slide>
+
+  <web-slide>
+    <iframe src="http://localhost:3000/graphql" width="100%" height="100%" frameborder=0></iframe>
+  </web-slide>
+
+  <web-slide>
+    <h2> Еще примеры </h2>
+    <a href="https://sandbox.learngraphql.com/">https://sandbox.learngraphql.com/</a>
+  </web-slide>
+
+  <web-slide-title>
+    <h1> Relay </h1>
+    <p>
+      Фреймворк для работы с данными в React приложениях :)
+    </p>
+  </web-slide-title>
+
+  <web-slide>
+    <h2> Декларативность </h2>
+    <p>
+      Relay позволяет декларативно описать данные, которые нужны для компонента. Relay сам решает когда и как добыть эти данные.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Соразмещение </h2>
+    <p>
+      Запросы размещены в компонетах. Relay аггрегирует запросы из компонетов чтобы запросить у сервера только те данные, которые действительно нужны.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Модификации </h2>
+    <p>
+      Relay позволяет модифицировать данные на клиенте и на сервере с помощью GraphQL mutations.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <img src="images/c++21days.jpg" width="70%">
+  </web-slide>
+
+  <web-slide>
+    <h2> Полезные ресурсы </h2>
     <ul>
-      <li><strong>Backwards Compatible:</strong> In a world of deployed native mobile applications with no forced upgrades, backwards compatibility is a challenge. Facebook, for example, releases apps on a two week fixed cycle and pledges to maintain those apps for <em>at least</em> two years. This means there are at a <em>minimum</em> 52 versions of our clients per platform querying our servers at any given time. Client-specified queries simplifies managing our backwards compatibility guarantees.</li>
-      <li><strong>Structured, Arbitrary Code:</strong> Query languages with field-level granularity have typically queried storage engines directly, such as SQL. GraphQL instead imposes a structure onto a server, and exposes fields that are backed by <em>arbitrary code</em>. This allows for both server-side flexibility and a uniform, powerful API across the entire surface area of an application.</li>
-      <li><strong>Application-Layer Protocol:</strong> GraphQL is an application-layer protocol and does not require a particular transport. It is a string that is parsed and interpreted by a server.</li>
-      <li><strong>Strongly-typed:</strong> GraphQL is strongly-typed. Given a query, tooling can ensure that the query is both syntactically correct and valid within the GraphQL type system before execution, i.e. at development time, and the server can make certain guarantees about the shape and nature of the response. This makes it easier to build high quality client tools.</li>
-      <li><strong>Introspective:</strong> GraphQL is introspective. Clients and tools can query the type system using the GraphQL syntax itself. This is a powerful platform for building tools and client software, such as automatic parsing of incoming data into strongly-typed interfaces. It is especially useful in statically typed languages such as Swift, Objective-C and Java, as it obviates the need for repetitive and error-prone code to shuffle raw, untyped JSON into strongly-typed business objects.</li>
+      <li> <a href="https://learngraphql.com/">https://learngraphql.com/</a> </li>
+      <li> <a href="https://github.com/chentsulin/awesome-graphql">Awesome GraphQL</a> </li>
+      <li> <a href="https://github.com/antono/2016-06-graphql-relay"> Код на GitHub </a> </li>
     </ul>
   </web-slide>
 
   <web-slide-title>
-		<h2> Questions? </h2>
-    <a href="https://github.com/antono/2016-06-graphql-relay"> Demos on Github </a>
+		<h2> Вопросы? </h2>
   </web-slide-title>
 
   <web-presentation-progress></web-presentation-progress>

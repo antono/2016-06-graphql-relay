@@ -1,16 +1,12 @@
-# Async / Await slides
+# GraphQL slides
 
 ```shell
 npm install
 npm start
-
-npm run async
 ```
-Take a look at `demo.*.js` files. `demo.asyncawait.js` requires babel.
-You can run it with `npm run async`.
 
 Have fun!
 
-Online: [Async/Await](http://asyncawait.herokuapp.com/)
+Online: [GraphQL Slides](http://graphql-slides.herokuapp.com/)
 
-Created by [Anton Vasiljev](http://twitter.com/antono) for Ciklum Frontend Meetup in 2015.
+Created by [Anton Vasiljev](http://twitter.com/antono) for Ciklum Frontend Corner in 2016.

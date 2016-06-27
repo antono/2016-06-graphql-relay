@@ -5,7 +5,7 @@
   "main": "index.html",
   "private": true,
   "scripts": {
-    "start": "$(npm bin)/http-server"
+    "start": "$(npm bin)/nodemon server"
   },
   "keywords": [
     "presentation",
@@ -15,14 +15,21 @@
   "author": "Antono Vasiljev <antono.vasiljev@gmail.com>",
   "dependencies": {
     "babel": "^5.0",
-    "http-server": "^0.8.5",
+    "express": "^4.14.0",
+    "express-graphql": "^0.5.3",
+    "express-session": "^1.13.0",
+    "graphiql": "^0.7.2",
+    "graphql": "^0.6.0",
+    "graphql-errors": "^2.1.0",
+    "node-fetch": "^1.5.3",
+    "nodemon": "^1.9.2",
     "web-presentation": "^1.0.3"
   },
-  "engines" : {
-    "node" : ">=6.2.1"
+  "engines": {
+    "node": ">=6.2.1"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/antono/2016-06-graphql-relay"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antono/2016-06-graphql-relay"
   }
 }
