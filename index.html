@@ -178,6 +178,10 @@ query {
   </web-slide>
 
   <web-slide>
+    <img src="https://cldup.com/ysnmIMhqRU.png" width="80%" />
+  </web-slide>
+
+  <web-slide>
     <h2> Не привязан к конкретной реализации </h2>
     <p>
       Javascript
@@ -194,10 +198,6 @@ query {
       SQL
       Lua
     </p>
-  </web-slide>
-
-  <web-slide>
-    <img src="https://cldup.com/ysnmIMhqRU.png" width="80%" />
   </web-slide>
 
   <web-slide>
@@ -229,6 +229,20 @@ query {
     <h2> Еще примеры </h2>
     <a href="https://sandbox.learngraphql.com/">https://sandbox.learngraphql.com/</a>
   </web-slide>
+
+  <web-slide>
+    <h2> Серверная реализация </h2>
+    <code class="small">
+      const graphql = require('grapql');
+      const schema = require('schema');
+
+      grapql(schema, query).then(result => res.json(result))
+    </code>
+  </web-slide>
+
+  <web-slide-title>
+    <h1> Код </h1>
+  </web-slide-title>
 
   <web-slide-title>
     <h1> Relay </h1>
@@ -268,6 +282,43 @@ query {
     <h2> Модификации </h2>
     <p>
       Relay позволяет модифицировать данные на клиенте и на сервере с помощью GraphQL mutations.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <pre><code class="small">
+class BlogPost extends React.Component {
+  render() {
+    return (
+      &lt;div className=&quot;post&quot;&gt;
+        &lt;h1&gt;{this.props.post.title}&lt;/h1&gt;
+        &lt;p&gt;{this.props.post.content}&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+};
+    </code></pre>
+  </web-slide>
+
+  <web-slide>
+    <pre><code class="small">
+BlogPost = Relay.createContainer(BlogPost, {
+  fragments: {
+    post: () =&gt; Relay.QL`
+      fragment on Post {
+        title,
+        content
+      }
+    `,
+  },
+});
+    </code></pre>
+  </web-slide>
+
+  <web-slide>
+    <h2> Магия </h2>
+    <p>
+      Управление нормализованным хранилищем...
     </p>
   </web-slide>
 
