@@ -3,9 +3,20 @@
 
 <web-presentation>
   <web-slide-title>
-    <h2> GraphQL <del>и Relay</del></h2>
-    <h3>за 30 минут</h3>
+    <h2> GraphQL и Relay </h2>
+
+    <div id="logos">
+      <img src="/images/graphql.svg" width="70">
+      <img src="/images/relay.svg" width="70">
+    </div>
+
     <p><a href="http://twitter.com/antono/"> Антон Васильев </a></p>
+  </web-slide-title>
+
+  <web-slide-title>
+    <h2> GraphQL </h2>
+
+    <img src="/images/graphql.svg" width="150">
   </web-slide-title>
 
   <web-slide>
@@ -20,31 +31,12 @@
     </ul>
   </web-slide>
 
-  <!--  TODO: examples for hierarchial queries -->
-
-  <web-slide>
-    <h2> Ориентирован на клиентов </h2>
-    <p>
-      GraphQL стремится удовлетворить требования фронтенд инжеренов и разработчиков родных приложений.
-    </p>
-  </web-slide>
-
-  <!--  TODO: examples -->
-
-  <web-slide>
-    <h2> Продукт-центированный </h2>
-    <p>
-      В приложениях без GraphQL структуру и содержимое ответа определяет код на стороне сервера.
-      Запросы GraphQL запрашивают ровно столько данных сколько нужно данному клиенту.
-    </p>
-  </web-slide>
-
   <web-slide>
     <h2> Запрос </h2>
     <pre>
       <code class="small">
 query {
-  todos {
+  items {
     id
     title
   }
@@ -79,7 +71,7 @@ query {
     <pre>
       <code class="small">
 query {
-  todos {
+  items {
     id
     title
     done
@@ -113,6 +105,54 @@ query {
   </web-slide>
 
   <web-slide>
+    <h2> Ориентирован на клиентов </h2>
+    <p>
+      GraphQL стремится удовлетворить требования разработчиков нативных приложений и фронтендеров.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Продукт-центированный </h2>
+    <p>
+      В приложениях без GraphQL структуру ответа определяет код на стороне сервера.
+      Запросы GraphQL запрашивают ровно столько данных сколько нужно данному клиенту.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Запрос </h2>
+    <pre>
+      <code class="small">
+query {
+  items {
+    title
+  }
+}
+      </code>
+    </pre>
+  </web-slide>
+
+  <web-slide>
+    <pre>
+      <code class="small">
+{
+  "data": {
+    "items": [
+      {
+        "title": "Read introduction",
+      },
+      {
+        "title": "Read GraphQL by example",
+      },
+    ]
+  }
+}
+      </code>
+    </pre>
+  </web-slide>
+
+
+  <web-slide>
     <h2> Упрощает обратную совместимость </h2>
     <p>
       Facebook выкатывает новый клиент каждые 2 недели и поддерживает его как минимум в
@@ -133,7 +173,26 @@ query {
     <h2> Не привязан к транспортному уровню </h2>
     <p>
       GraphQL - протокол уровня приложения и не привязан к протоколу транспортного уровня.
-      GraphQL запрос - это строка которая разбирается и обрабатывается на сервере произвольным кодом.
+      GraphQL запрос - это строка которая разбирается и обрабатывается провайдером данных.
+    </p>
+  </web-slide>
+
+  <web-slide>
+    <h2> Не привязан к конкретной реализации </h2>
+    <p>
+      Javascript
+      Ruby
+      PHP
+      Python
+      Java
+      C/C++
+      Go
+      Scala
+      .NET
+      Elixir
+      Haskell
+      SQL
+      Lua
     </p>
   </web-slide>
 
@@ -144,8 +203,8 @@ query {
   <web-slide>
     <h2> Сильно типизированный </h2>
     <p>
-      GraphQL - сильно типизированный язык запросов. Это позволяет инструментам разработки валидизировать запрос не полагаясь на проверки этапа выполнения.
-      Клиент всегда знает о типах данных ответа.
+      GraphQL - сильно типизированный язык запросов. Это позволяет инструментам
+      разработки валидизировать запрос не полагаясь на проверки этапа выполнения.
     </p>
   </web-slide>
 
@@ -154,12 +213,13 @@ query {
     <p>
       Клиент может делать запросы к системе типов GraphQL используя GraphQL.
       Упрощает разработку клиентов для языков со статической типизацией (Java, Objective-C, Swift).
+      Клиент всегда знает о типах данных ответа и о схеме типов у graphql провайдера.
     </p>
   </web-slide>
 
-  <web-slide>
+  <web-slide-title>
     <h2> Примеры </h2>
-  </web-slide>
+  </web-slide-title>
 
   <web-slide>
     <iframe src="http://localhost:3000/graphql" width="100%" height="100%" frameborder=0></iframe>
@@ -172,10 +232,23 @@ query {
 
   <web-slide-title>
     <h1> Relay </h1>
+    <img src="/images/relay.svg" width="100">
+  </web-slide-title>
+
+  <web-slide>
     <p>
       Фреймворк для работы с данными в React приложениях :)
     </p>
-  </web-slide-title>
+  </web-slide>
+
+  <web-slide>
+    <p>
+      <del>Фреймворк для работы с данными в React приложениях</del>
+    </p>
+    <p>
+      Фреймворк для работы с данными в приложениях с иерархическими видами.
+    </p>
+  </web-slide>
 
   <web-slide>
     <h2> Декларативность </h2>
@@ -199,12 +272,13 @@ query {
   </web-slide>
 
   <web-slide>
-    <img src="images/c++21days.jpg" width="70%">
+    <img src="images/c++21days.jpg" width="70%" />
   </web-slide>
 
   <web-slide>
     <h2> Полезные ресурсы </h2>
     <ul>
+      <li> <a href="http://graphql.org/">http://graphql.org/</a> </li>
       <li> <a href="https://learngraphql.com/">https://learngraphql.com/</a> </li>
       <li> <a href="https://github.com/chentsulin/awesome-graphql">Awesome GraphQL</a> </li>
       <li> <a href="https://github.com/antono/2016-06-graphql-relay"> Код на GitHub </a> </li>

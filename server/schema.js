@@ -28,7 +28,7 @@ const items = [
   { id: 6, listId: 2, title: 'Read Relay examples', done: false },
 ]
 
-const TodoIdType = new GraphQLNonNull(GraphQLInt);
+const TodoIdType = GraphQLID;
 
 const getRandomId = () => Math.floor(Math.random() * 10000);
 
@@ -110,7 +110,8 @@ const RootQueries = new GraphQLObjectType({
         id: { type: TodoIdType }
       },
       resolve(parent, args) {
-        return lists.find(list => list.id === args.id);
+        const id = parseInt(args.id);
+        return lists.find(list => list.id === id);
       }
     },
     lists: {
@@ -137,7 +138,8 @@ const RootQueries = new GraphQLObjectType({
         id: { type: TodoIdType }
       },
       resolve(parent, args) {
-        return items.find(item => item.id === args.id);
+        const id = parseInt(args.id);
+        return items.find(item => item.id === id);
       }
     },
     items: {
@@ -166,6 +168,11 @@ const RootQueries = new GraphQLObjectType({
 
         return result;
       }
+    },
+
+    rootHack: {
+      type: new GraphQLNonNull(RootQueries),
+      resolve: () => ({})
     },
   })
 });
@@ -226,11 +233,11 @@ const RootMutations = new GraphQLObjectType({
       description: 'Move TODO item to another list',
       args: {
         id: {
-          type: TodoIdType,
+          type: new GraphQLNonNull(GraphQLInt),
           description: 'TODO Item ID'
         },
         listId: {
-          type: TodoIdType,
+          type: new GraphQLNonNull(GraphQLInt),
           description: 'Destination TODO List ID'
         }
       },
@@ -251,7 +258,7 @@ const RootMutations = new GraphQLObjectType({
       type: TodoItem,
       description: 'Remove todo item by ID',
       args: {
-        id: { type: TodoIdType }
+        id: { type: new GraphQLNonNull(GraphQLInt) }
       },
       resolve(parent, args) {
         const item = items.find(item => item.id === args.id);
@@ -268,7 +275,7 @@ const RootMutations = new GraphQLObjectType({
       type: TodoList,
       description: 'Remove todo item by ID',
       args: {
-        id: { type: TodoIdType }
+        id: { type: new GraphQLNonNull(GraphQLInt) }
       },
       resolve(parent, args) {
         const list = lists.find(list => list.id === args.id)

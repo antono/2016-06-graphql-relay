@@ -1,0 +1,36 @@
+schema {
+  query: RootQueries
+  mutation: RootMutations
+}
+
+type RootMutations {
+  upsertItem(id: Int, title: String, done: Boolean): TodoItem
+  upsertList(id: Int, title: String): TodoList
+  moveTodo(id: ID, listId: ID): TodoItem
+  removeItem(id: ID): TodoItem
+  removeList(id: ID): TodoList
+}
+
+type RootQueries {
+  echo(message: String): String
+  list(id: ID): TodoList
+  lists(offset: Int = 0, limit: Int = 10): [TodoList]
+  item(id: ID): TodoItem
+  items(offset: Int = 0, limit: Int = 10, done: Boolean): [TodoItem]
+  rootHack: RootQueries!
+}
+
+type TodoItem {
+  id: ID
+  title: String
+  done: Boolean
+  list: TodoList
+  status: String @deprecated(reason: "Use done instead")
+}
+
+type TodoList {
+  id: ID
+  title: String
+  items: [TodoItem]
+  itemsCount: Int
+}

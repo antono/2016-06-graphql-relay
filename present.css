@@ -28,3 +28,21 @@ code.small {
 ul li, ol li {
   text-align: left;
 }
+
+web-slide-title {
+  background: #eef;
+  color: #555;
+}
+
+web-slide {
+}
+
+#logos img {
+  float: left;
+  padding: 20px;
+}
+
+a, a:visited {
+  color: gray;
+  text-decoration: underline;
+}
